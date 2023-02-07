@@ -10,7 +10,8 @@ from alembic import context
 from internal.config.settings import settings
 from internal.entity.Base import Base
 from loguru import logger
-from internal.entity.Roles import Roles
+from internal.entity import *
+
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
