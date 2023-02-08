@@ -10,10 +10,10 @@ router.include_router(
 router.include_router(
     signin.router,
     prefix='/signin',
-    tags=['signin'],
+    tags=['Authentication'],
 )
 router.include_router(
     signup.router,
     prefix='/signup',
-    tags=['signup'],
+    tags=['Authentication'],
 )

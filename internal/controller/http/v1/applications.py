@@ -12,10 +12,11 @@ responses = Response.schema(status.HTTP_201_CREATED)
     path='/',
     responses=responses,
     status_code=status.HTTP_201_CREATED,
+    deprecated=True
 )
 async def create_application(
-    dto: BaseApplication,
-    application_service: ApplicationService = Depends(),
+        dto: BaseApplication,
+        application_service: ApplicationService = Depends(),
 ) -> Response:
     # await application_service.create(dto)
     return await application_service.create(dto)

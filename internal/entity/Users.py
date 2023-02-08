@@ -1,7 +1,7 @@
-from sqlalchemy import Column, Integer, ForeignKey
+from sqlalchemy import Column, INTEGER, VARCHAR, BOOLEAN
+from sqlalchemy import ForeignKey
 
 from internal.entity.Base import Base
-from sqlalchemy import Column, INTEGER, TEXT, VARCHAR, BOOLEAN
 
 
 class Users(Base):
@@ -11,5 +11,6 @@ class Users(Base):
     username: Column = Column(VARCHAR(length=255))
     email: Column = Column(VARCHAR(length=255))
     password: Column = Column(VARCHAR(length=255))
-    is_deactivate: Column = Column(BOOLEAN)
+    refresh_token: Column = Column(VARCHAR(length=255))
+    is_deactivate: Column = Column(BOOLEAN, nullable=False, default=False)
     role_id: Column = Column(INTEGER, ForeignKey("roles.id"))

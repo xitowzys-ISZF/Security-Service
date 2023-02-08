@@ -31,16 +31,21 @@ class Settings(BaseSettings):
 
     BACKEND_CORS_ORIGINS: List[AnyHttpUrl] = []
 
-    @validator('BACKEND_CORS_ORIGINS', pre=True)
-    def assemble_cors_origins(
-            cls, value: str | List[str],  # noqa: N805, WPS110
-    ) -> str | List[str]:
-        if isinstance(value, str) and not value.startswith('['):
-            return [i.strip() for i in value.split(',')]
-        elif isinstance(value, (list, str)):
-            return value
+    JWT_SECRET: str = env.str("JWT_SECRET")
+    JWT_ALGORITHM: str = env.str("JWT_ALGORITHM")
 
-        raise ValueError(value)
+    ARGON2_SALT: str = env.str("ARGON2_SALT")
+
+    # @validator('BACKEND_CORS_ORIGINS', pre=True)
+    # def assemble_cors_origins(
+    #         cls, value: str | List[str],  # noqa: N805, WPS110
+    # ) -> str | List[str]:
+    #     if isinstance(value, str) and not value.startswith('['):
+    #         return [i.strip() for i in value.split(',')]
+    #     elif isinstance(value, (list, str)):
+    #         return value
+    #
+    #     raise ValueError(value)
 
     DB_HOST: str = env.str("DB_HOST", "127.0.0.1")
     DB_PORT: str = env.str("DB_PORT", "3306")
