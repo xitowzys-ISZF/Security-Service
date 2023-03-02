@@ -8,7 +8,7 @@ class AccessTokenGenerateUsecase:
     def execute(user_id: int):
         payload = {
             "user_id": user_id,
-            "expires": time.time() + 900
+            "exp": time.time() + 900
         }
 
         return jwt.encode(payload, settings.JWT_SECRET, algorithm=settings.JWT_ALGORITHM)

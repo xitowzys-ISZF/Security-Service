@@ -7,7 +7,8 @@ class PermissionsAction(Base):
     __tablename__: str = "permissions_action"
 
     id: Column = Column(INTEGER, primary_key=True, autoincrement=True)
-    action: Column = Column(VARCHAR(length=255))
+    action_url: Column = Column(VARCHAR(length=255))
+    method: Column = Column(VARCHAR(length=255))
     subject_id: Column = Column(INTEGER, ForeignKey("permissions_subject.id"))
 
     permissions_subject = relationship("PermissionsSubject", backref="permission_action")
