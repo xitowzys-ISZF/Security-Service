@@ -7,7 +7,6 @@ from internal.dto.VerifyJwtDto import VerifyJwtDto
 from internal.dto.application import BaseApplication
 from internal.service.SigninService import SigninService
 from internal.service.AccessVerificationService import AccessVerificationService
-from internal.service.application import ApplicationService
 from internal.usecase.utils import SucessfulResponse as Response
 
 router = APIRouter()
