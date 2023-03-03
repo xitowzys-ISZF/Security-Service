@@ -2,7 +2,8 @@ from typing import Tuple, Dict, Any
 
 from sqlalchemy.exc import NoResultFound
 
-from internal.config.database import current_session, Errors
+from internal.config.Errors import Errors
+from internal.config.database import current_session
 from internal.config.settings import settings
 from internal.dto.SignupDto import SignupDto
 from internal.entity import Users
